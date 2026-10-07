@@ -16,10 +16,10 @@ const img = {
 };
 const heroSlides = [{
   image: img.theater,
-  label: 'COMPANY PROFILE',
-  title: 'Art moves us.',
-  emphasis: 'Together.',
-  copy: 'A performance to remember. A space for your next idea.',
+  label: '',
+  title: 'WHERE POSSIBILITY',
+  emphasis: 'TAKES FORM',
+  copy: 'Bring ideas to life through spaces built for performance, creativity, collaboration, and experience.',
   route: 'about',
   video: true
 }, {
@@ -40,7 +40,7 @@ const heroSlides = [{
   video: false
 }];
 const official = 'https://www.ciputraartpreneur.com';
-const clientLogo = "https://storage.googleapis.com/storage.magicpath.ai/component-assets/457842786541146112/458438500392509440/4770721df96a48dc411fe51e77111350ff4c1617a76c883ede8fa2cddcc56129.webp";
+const clientLogo = "https://storage.googleapis.com/storage.magicpath.ai/component-assets/457842786541146112/458576223287799808/0a1cf10d1a23cacaf97da2ef19694ee65b6bdadf7753da49a9c2653e1c3e184d.png";
 const spaces = [{
   id: 'theater',
   name: 'Theater',
@@ -393,7 +393,7 @@ export const CACVisitorOrganizerJourneys05Oct = () => {
             }}>{code}</button>)}</div><button className="menu-btn" aria-label={menu ? 'Close menu' : 'Open menu'} aria-expanded={menu} onClick={() => M(!menu)}>{menu ? '×' : <><span /><span /></>}</button></div></header>
 {menu && <nav className="mobile-nav" aria-label="Mobile navigation">{[['EVENTS', 'events'], ['VENUES', 'venues'], ['NEWS & ARTICLE', 'news'], ['ABOUT', 'about'], ['VISIT', 'visit']].map(([t, p], i) => p === 'venues' ? <details className="mobile-venue-dropdown" key={p}><summary><small>0{i + 1}</small>VENUES</summary><div>{spaces.map(space => <button key={space.id} onClick={() => openVenue(space.id)}>{space.name}<A /></button>)}<button onClick={() => go('venues')}>All venues<A /></button></div></details> : <button key={p} onClick={() => go(p)}><small>0{i + 1}</small>{t}<A /></button>)}</nav>}
 <main id="main" className="main" key={page}>
-{page === 'home' && <><section className="hero" aria-roledescription="carousel" aria-label="Artpreneur highlights"><div className="hero-image" key={hero}><img src={heroSlides[hero].image} alt={heroSlides[hero].video ? 'Ciputra Artpreneur company-profile video placeholder' : heroSlides[hero].title + ' highlight'} /></div><div className="hero-copy"><span className="eyebrow">{heroSlides[hero].label}</span><h1 ref={heading} tabIndex={-1}>{heroSlides[hero].title}<br /><em>{heroSlides[hero].emphasis}</em></h1><p>{heroSlides[hero].copy}</p>{heroSlides[hero].video && <div className="hero-media-placeholder"><button aria-label="View company-profile video placeholder" onClick={() => {
+{page === 'home' && <><section className={hero === 0 ? "hero hero-intro" : "hero"} aria-roledescription="carousel" aria-label="Artpreneur highlights"><div className="hero-image" key={hero}><img src={heroSlides[hero].image} alt={heroSlides[hero].video ? 'Ciputra Artpreneur company-profile video placeholder' : heroSlides[hero].title + ' highlight'} /></div><div className="hero-copy">{heroSlides[hero].label && <span className="eyebrow">{heroSlides[hero].label}</span>}<h1 ref={heading} tabIndex={-1}>{heroSlides[hero].title}<br /><em>{heroSlides[hero].emphasis}</em></h1><p>{heroSlides[hero].copy}</p>{heroSlides[hero].video && <div className="hero-media-placeholder"><button aria-label="View company-profile video placeholder" onClick={() => {
                   HP(true);
                   MD('manifesto');
                 }}>▷</button><span>Manifesto / company-profile video placeholder</span></div>}<div className="hero-actions"><Btn light onClick={() => go(heroSlides[hero].route)}>Find out more</Btn></div></div><div className="hero-bottom"><div className="slide-control"><button aria-label="Previous highlight" onClick={() => H((hero + heroSlides.length - 1) % heroSlides.length)}>←</button><button aria-label="Next highlight" onClick={() => H((hero + 1) % heroSlides.length)}>→</button><button aria-label={heroPaused ? 'Play slideshow' : 'Pause slideshow'} aria-pressed={heroPaused} onClick={() => HP(!heroPaused)}>{heroPaused ? '▷' : 'Ⅱ'}</button></div></div></section><section className="section"><div className="section-title"><div><span className="eyebrow">ON THE CALENDAR</span><h2 className="events-heading">EVENTS</h2></div><button className="link" onClick={() => go('events')}>Explore More <A /></button></div><div className="tabs home-programme-tabs">{['Ongoing', 'Upcoming'].map(x => <button key={x} className={homeEventTab === x ? 'active' : ''} aria-pressed={homeEventTab === x} onClick={() => HET(x)}>{x}</button>)}</div><div className="event-grid">{programmes.filter(x => programmeStatus(x) === homeEventTab).slice(0, 3).map(item => <EventCard key={item.id} item={item} />)}</div></section><HomeStories go={go} /><section className="section home-venue-picker"><div className="feature-photo"><img src={img[homeVenue as keyof typeof img]} alt={'Ciputra Artpreneur ' + homeVenue + ' archive photograph'} loading="lazy" /><span>ARCHIVE PHOTOGRAPH</span></div><div className="home-venue-copy"><h2>Find your space.</h2><div className="chips" role="group" aria-label="Choose a venue">{spaces.map(space => <button key={space.id} className={homeVenue === space.id ? 'active' : ''} aria-pressed={homeVenue === space.id} onClick={() => HV(space.id)}>{space.name}</button>)}</div>{spaces.filter(space => space.id === homeVenue).map(space => <div key={space.id}><h3>{space.head}</h3><p>{space.copy}</p><button className="btn" onClick={() => openVenue(space.id)}>Explore the {space.name.toLowerCase()} <A /></button>{space.id !== 'museum' && <button className="link" onClick={() => enquire('Site visit', space.name)}>Request a site visit <A up /></button>}{space.id === 'museum' && <p className="museum-collection-note">Largest collection of Hendra Gunawan's</p>}</div>)}</div></section><HomeNews go={go} /><GeneralFaq go={go} /></>}
