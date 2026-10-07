@@ -53,7 +53,7 @@
 
 /* Client feedback #71–73: supplied transparent logo and approved intro copy. */
 .cac .client-logo{width:180px;height:60px;object-fit:contain}
-.cac .footer-brand img{width:240px;height:80px;object-fit:contain;border-radius:0}
+.cac .footer-brand img{width:240px;height:80px;object-fit:contain;border-radius:0;filter:brightness(0) invert(1)}
 .cac .hero-intro h1{font-size:clamp(48px,5.55cqw,80px);letter-spacing:-.045em}
 .cac .hero-intro .hero-copy>p{max-width:620px}
 @container cac (max-width:1050px){.cac .client-logo{width:150px;height:50px}}
