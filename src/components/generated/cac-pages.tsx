@@ -9,12 +9,13 @@ type Props = {
   enquire: (mode: string, venue?: string) => void;
 };
 const LinkArrow = () => <span aria-hidden="true">↗</span>;
+const StoryArrow = () => <svg className="story-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" stroke="currentColor" strokeWidth="1.4" /></svg>;
 export const GeneralFaq = ({
   go
 }: Pick<Props, 'go'>) => <section className="section home-faq" id="general-faq"><div className="section-title"><div><span className="eyebrow">A FEW HELPFUL ANSWERS</span><h2>Before you<br /><em>make a plan.</em></h2></div><button className="link" onClick={() => go('visit/faq')}>Visitor FAQs <LinkArrow /></button></div>{generalFaq.map(([q, a]) => <details className="faq" key={q}><summary>{q}<span>+</span></summary><p>{a}</p></details>)}</section>;
 export const HomeStories = ({
   go
-}: Pick<Props, 'go'>) => <section className="section home-stories" id="stories-testimonials"><div className="section-title"><div><span className="eyebrow">STORIES & TESTIMONIALS</span><h2>In their<br /><em>own words.</em></h2></div><button className="link" onClick={() => go('venues/theater/past-events')}>Explore past programmes <LinkArrow /></button></div><div className="testimonial-grid">{testimonials.map(([name, url]) => <a key={name} href={url} target="_blank" rel="noreferrer" aria-label={'Watch ' + name + ' on YouTube'}><div className="testimonial-preview"><img src={'https://i.ytimg.com/vi/' + url.split('v=')[1] + '/maxresdefault.jpg'} alt={name + ' in the Artpreneur testimonial video'} loading="lazy" /><span className="video-play" aria-hidden="true">▷</span><span className="video-platform">YouTube</span></div><h3>{'Komentar ' + name + ' mengenai Ciputra Artpreneur'}</h3><strong>Watch on YouTube <LinkArrow /></strong></a>)}</div></section>;
+}: Pick<Props, 'go'>) => <section className="section home-stories" id="stories-testimonials"><div className="section-title"><div><span className="eyebrow">STORIES & TESTIMONIALS</span><h2>In their<br /><em>own words.</em></h2></div><button className="link" onClick={() => go('venues/theater/past-events')}>Explore past programmes <LinkArrow /></button></div><div className="testimonial-grid">{testimonials.map(([name, url]) => <a key={name} href={url} target="_blank" rel="noreferrer" aria-label={'Watch ' + name + ' on YouTube'}><div className="testimonial-preview"><img src={'https://i.ytimg.com/vi/' + url.split('v=')[1] + '/maxresdefault.jpg'} alt={name + ' in the Artpreneur testimonial video'} loading="lazy" /><span className="video-play" aria-hidden="true">▷</span><span className="video-platform">YouTube</span></div><p className="testimonial-speaker">{name}</p><h3>{'Komentar ' + name + ' mengenai Ciputra Artpreneur'}</h3><strong>Watch on YouTube <StoryArrow /></strong></a>)}</div></section>;
 export const HomeEnquiry = ({
   go
 }: Pick<Props, 'go'>) => {
@@ -31,7 +32,7 @@ export const NewsCards = ({
 }: {
   go: (p: string) => void;
   limit?: number;
-}) => <div className="news-grid">{editorial.slice(0, limit).map(x => <button key={x.id} className="news-card" onClick={() => go('news/' + x.id)}><div><img src={x.image} alt={x.title + ' illustrative image'} /><span>{x.imageLabel}</span></div><span className="eyebrow">{x.kind.toUpperCase()} / {x.tag}</span><h3>{x.title}</h3><p>{x.intro}</p><strong>Read story <LinkArrow /></strong></button>)}</div>;
+}) => <div className="news-grid">{editorial.slice(0, limit).map(x => <button key={x.id} className="news-card" onClick={() => go('news/' + x.id)}><div><img src={x.image} alt={x.title + ' illustrative image'} /><span>{x.imageLabel}</span></div><span className="eyebrow">{x.kind.toUpperCase()} / {x.tag}</span><h3>{x.title}</h3><p>{x.intro}</p><strong>Read story <StoryArrow /></strong></button>)}</div>;
 export const HomeNews = ({
   go
 }: Pick<Props, 'go'>) => <section className="section" id="news-articles"><div className="section-title"><div><span className="eyebrow">NEWS & ARTICLES</span><h2>More to<br /><em>discover.</em></h2></div><button className="link" onClick={() => go('news')}>All news & articles <LinkArrow /></button></div><NewsCards go={go} limit={2} /></section>;
@@ -41,7 +42,7 @@ export const NewsPage = ({
 }: Pick<Props, 'go'> & {
   category?: string;
 }) => {
-  return <><div className="page-head"><span className="eyebrow">NEWS & ARTICLES</span><h1>{filter === 'News' ? 'Artpreneur news' : filter === 'Article' ? 'Stories & guides' : 'Inside Artpreneur'}</h1><p>Programme news, stories and practical guides.</p></div><section className="section"><div className="tabs">{['All', 'News', 'Article'].map(x => <button key={x} className={filter === x ? 'active' : ''} aria-pressed={filter === x} onClick={() => go(x === 'All' ? 'news' : x === 'News' ? 'news/updates' : 'news/articles')}>{x === 'Article' ? 'Articles' : x}</button>)}</div><div className="news-grid news-list">{editorial.filter(x => filter === 'All' || x.kind === filter).map(x => <button key={x.id} className="news-card" onClick={() => go('news/' + x.id)}><div><img src={x.image} alt={x.title + ' illustrative image'} /><span>Illustration</span></div><span className="eyebrow">{x.kind.toUpperCase()} / {x.tag}</span><h3>{x.title}</h3><p>{x.intro}</p><strong>Read story <LinkArrow /></strong></button>)}</div></section></>;
+  return <><div className="page-head"><span className="eyebrow">NEWS & ARTICLES</span><h1>{filter === 'News' ? 'Artpreneur news' : filter === 'Article' ? 'Stories & guides' : 'Inside Artpreneur'}</h1><p>Programme news, stories and practical guides.</p></div><section className="section"><div className="tabs">{['All', 'News', 'Article'].map(x => <button key={x} className={filter === x ? 'active' : ''} aria-pressed={filter === x} onClick={() => go(x === 'All' ? 'news' : x === 'News' ? 'news/updates' : 'news/articles')}>{x === 'Article' ? 'Articles' : x}</button>)}</div><div className="news-grid news-list">{editorial.filter(x => filter === 'All' || x.kind === filter).map(x => <button key={x.id} className="news-card" onClick={() => go('news/' + x.id)}><div><img src={x.image} alt={x.title + ' illustrative image'} /><span>Illustration</span></div><span className="eyebrow">{x.kind.toUpperCase()} / {x.tag}</span><h3>{x.title}</h3><p>{x.intro}</p><strong>Read story <StoryArrow /></strong></button>)}</div></section></>;
 };
 export const ArticlePage = ({
   id,
