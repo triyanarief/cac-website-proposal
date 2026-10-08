@@ -73,3 +73,19 @@
 .cac .testimonial-speaker+h3{margin-top:0}
 
 .cac .testimonial-preview .video-platform{top:12px;left:12px;right:auto;bottom:auto}
+
+/* Dyta mobile menu feedback, 08 Oct 2026 11:13 WIB. */
+@container cac (max-width:1100px){
+.cac .mobile-nav>button,.cac .mobile-venue-dropdown>summary{font-size:25px;font-weight:400;line-height:1.25;letter-spacing:-.035em;text-transform:uppercase}
+}
+@container cac (max-width:760px){
+.cac .mobile-nav>button,.cac .mobile-venue-dropdown>summary{font-size:24px}
+}
+
+/* Dyta: align all footer contact link buttons, 08 Oct 2026 13:06 WIB. */
+.cac .footer-contact-row>div{align-items:center}
+.cac .footer-contact-row a{display:inline-flex;align-items:center;line-height:1.5;white-space:nowrap}
+@container cac (max-width:760px){
+.cac .footer-contact-row>div:first-child{flex-direction:row;flex-wrap:wrap;gap:12px;align-items:center}
+.cac .footer-contact-row>div+div{gap:12px;align-items:center}
+}
