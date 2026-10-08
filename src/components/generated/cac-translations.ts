@@ -7,3 +7,9 @@ Object.assign(dictionary, {"WHERE POSSIBILITY": "DI MANA KEMUNGKINAN", "TAKES FO
 Object.assign(dictionary, {"A collection of 32 paintings and 18 sketches by Hendra Gunawan. Lorem ipsum dolor sit amet, consectetur adipiscing elit.": "Koleksi 32 lukisan dan 18 sketsa karya Hendra Gunawan. Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Ask the venue in advance if you need help checking step-free access or seating arrangements. Museum visitor information is a content placeholder; confirm visit arrangements with the Artpreneur team.": "Hubungi venue terlebih dahulu jika Anda memerlukan bantuan untuk akses tanpa tangga atau pengaturan tempat duduk. Informasi pengunjung Museum merupakan placeholder konten; konfirmasikan rencana kunjungan dengan tim Artpreneur.", "Ask the Artpreneur team for approved museum programme references.": "Mintalah referensi program Museum yang disetujui kepada tim Artpreneur."});
 
 Object.assign(dictionary, {"Please confirm museum information with our team before visiting.": "Konfirmasikan informasi Museum dengan tim kami sebelum berkunjung."});
+
+Object.assign(dictionary, {"Example: ": "Contoh: ", "SAMPLE PROGRAMME": "CONTOH PROGRAM", "Illustrative schedule: ": "Contoh jadwal: ", "An illustrative event concept and schedule for this catalogue. This is not an official Ciputra Artpreneur event or ticket.": "Konsep acara dan jadwal ilustratif untuk katalog ini. Bukan agenda atau tiket resmi Ciputra Artpreneur."});
+
+Object.assign(dictionary, {"All venues": "Semua venue", "1,500 m² of gallery space": "Ruang galeri seluas 1.500 m²", "events": "acara", "event": "acara", "PERFORMANCE": "PERTUNJUKAN", "ARTICLE": "ARTIKEL", "Example:": "Contoh:", "Illustrative schedule:": "Contoh jadwal:"});
+
+Object.assign(dictionary, {"EXHIBITION": "PAMERAN", "TALKS & IDEAS": "DISKUSI & GAGASAN", "WORKSHOP": "LOKAKARYA"});

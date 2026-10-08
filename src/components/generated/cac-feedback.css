@@ -90,5 +90,5 @@
 .cac .footer-contact-row>div+div{gap:12px;align-items:center}
 }
 
-/* Keep mobile Museum statistics inset from their enclosing rules. */
-@container cac (max-width:760px){.cac .museum-layout-facts{padding-inline:12px}}
+/* Keep Museum statistics inset from their enclosing rules at every viewport. */
+.cac .museum-layout-facts{padding-inline:12px}
