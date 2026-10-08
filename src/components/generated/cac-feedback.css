@@ -89,3 +89,6 @@
 .cac .footer-contact-row>div:first-child{flex-direction:row;flex-wrap:wrap;gap:12px;align-items:center}
 .cac .footer-contact-row>div+div{gap:12px;align-items:center}
 }
+
+/* Keep mobile Museum statistics inset from their enclosing rules. */
+@container cac (max-width:760px){.cac .museum-layout-facts{padding-inline:12px}}
